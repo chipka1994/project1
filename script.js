@@ -58,9 +58,31 @@ if (hamburger && cola || fries === 3 && nuggets) {
 }
 
 
+let num = 23;
+// while(num < 30){
+//     console.log(num);
+//     num++;
+// }
 
+do {
+    console.log(num);
+    num++;
+}
+while(num<30);
 
+for(i = 1; i < 8; i++){
+    console.log(i);
+}
 
-
+for(i = 2; i < 20; i++){
+    if(i === 14){
+        break;
+    }console.log(i);
+}
+for(i = 2; i < 20; i++){
+    if(i === 14 ){
+        continue;
+    }console.log(i);
+}
 
 
