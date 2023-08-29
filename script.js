@@ -120,10 +120,59 @@
 // }
     
 
+
+
 "use strict"
 
-const namerOfFilms = +prompt ('Сколько фильмов Вы уже посмотрели?', '');
-  
+// const namerOfFilms = +prompt ('Сколько фильмов Вы уже посмотрели?', ''); 
+
+// const personalMovieDB = {
+//     count: namerOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
+// // const answer1 = prompt('Один из последних просмотренных фильмов?', ''), 
+// //       answer2 = prompt('Насколько оцените его?', ''),
+// //       answer3 = prompt('Один из последних просмотренных фильмов?', ''),
+// //       answer4 = prompt('Насколько оцените его?', '');
+
+// // personalMovieDB.movies[answer1] = answer2;
+// // personalMovieDB.movies[answer3] = answer4;
+
+// for(let i = 0; i < 2; i++){
+//     const answer1 = prompt("Один из последних просмотренных фильмов?",''),
+//           answer2 = prompt("Насколько оцените его?", '');
+//     if (answer1 != null && answer2 != null && answer1 != '' && answer2 != '' && answer1.length < 50){
+//         personalMovieDB.movies[answer1] = answer2;
+//     }else{
+//         i--; 
+//         //   если не выполняются  предыдущие условия цикл возврацается к answer1
+//     }        
+// }
+// if(namerOfFilms <= 10){
+//     console.log('Просмотрено довольно мало фильмов');
+// }else if (namerOfFilms > 10 && namerOfFilms <= 30){
+//     console.log('Вы классический зритель');
+// }else if (namerOfFilms > 30){
+//     console.log('Вы киноман');
+// }else{
+//     console.log('Произощла ошибка');
+// }
+// console.log(personalMovieDB);
+
+
+let namerOfFilms; 
+
+function start(){
+    namerOfFilms = +prompt ('Сколько фильмов Вы уже посмотрели?', ''); 
+    while(namerOfFilms == '' || namerOfFilms == null || isNaN(namerOfFilms)){
+        namerOfFilms = +prompt ('Сколько фильмов Вы уже посмотрели?', ''); 
+
+    }
+}
+start();
 const personalMovieDB = {
     count: namerOfFilms,
     movies: {},
@@ -131,32 +180,52 @@ const personalMovieDB = {
     genres: [],
     privat: false
 };
-
-// const answer1 = prompt('Один из последних просмотренных фильмов?', ''), 
-//       answer2 = prompt('Насколько оцените его?', ''),
-//       answer3 = prompt('Один из последних просмотренных фильмов?', ''),
-//       answer4 = prompt('Насколько оцените его?', '');
-
-// personalMovieDB.movies[answer1] = answer2;
-// personalMovieDB.movies[answer3] = answer4;
-
-for(let i = 0; i < 2; i++){
+function rememberMyFilm(){
+    for(let i = 0; i < 2; i++){
     const answer1 = prompt("Один из последних просмотренных фильмов?",''),
           answer2 = prompt("Насколько оцените его?", '');
     if (answer1 != null && answer2 != null && answer1 != '' && answer2 != '' && answer1.length < 50){
         personalMovieDB.movies[answer1] = answer2;
     }else{
         i--; 
-        //   если не выполняются  предыдущие условия цикл возврацается к answer1
     }        
 }
-if(namerOfFilms <= 10){
-    console.log('Просмотрено довольно мало фильмов');
-}else if (namerOfFilms > 10 && namerOfFilms <= 30){
-    console.log('Вы классический зритель');
-}else if (namerOfFilms > 30){
-    console.log('Вы киноман');
-}else{
-    console.log('Произощла ошибка');
 }
+rememberMyFilm();
+
+function detectPersonalLevel(){
+   if(namerOfFilms <= 10){
+    console.log('Просмотрено довольно мало фильмов');
+   }else if (namerOfFilms > 10 && namerOfFilms <= 30){
+    console.log('Вы классический зритель');
+   }else if (namerOfFilms > 30){
+    console.log('Вы киноман');
+   }else{
+    console.log('Произощла ошибка');
+   } 
+}
+detectPersonalLevel();
 console.log(personalMovieDB);
+
+
+function showMyDB(hidden){
+    if (!hidden){
+        console.log(personalMovieDB);
+    }else{
+        console.log('wrong');
+    }
+}
+showMyDB(personalMovieDB);
+
+function writeYourGenres(){
+    
+    for(let i = 1; i <= 3; i++){
+    const myGenres = prompt(`Ваш любимый жанр под номером ${i}`);   
+        personalMovieDB.genres[i - 1] = myGenres;
+        // либо так
+        // personalMovieDB.genres[i - 1] =  prompt(`Ваш любимый жанр под номером ${i}`); 
+    }
+}
+writeYourGenres();
+
+
